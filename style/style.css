@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap);
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Montserrat', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -13,21 +14,23 @@ header {
     width: 100%;
     height: 80px;
     background-color: #222323;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding-left: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 03261041;
 }
 
 .header-esquerda {
     display: flex;
     align-items: center;
     gap: 12px;
-    
+
 }
 
 .logo {
     width: 68px;
-   height: auto;
-   display:block;
+    height: auto;
 }
 
 .body {
@@ -39,9 +42,9 @@ header {
 
 .texto_logo {
     font-size: 28px;
-    font-weight:700;
-    color:#2F80FF;
-    font-family:'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #2F80FF;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .menu {
@@ -51,61 +54,61 @@ header {
     padding-left: 30px;
 }
 
-.menu a{
-    text-decoration:none;
-    color:#2F80FF;
-    font-weight:700;
-    font-size:18px;
+.menu a {
+    text-decoration: none;
+    color: #2F80FF;
+    font-weight: 700;
+    font-size: 18px;
     transition: 0.4s;
 }
 
-.menu a:hover{
-    color:#F4C542;
+.menu a:hover {
+    color: #F4C542;
 }
 
-.header-direita{
-    display:flex;
-    gap:15px;
+.header-direita {
+    display: flex;
+    gap: 15px;
     padding-right: 10px;
 }
 
 .botao-login {
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:10px;
-    font-weight:700;
-    transition:0.3s;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
 }
 
-.botao-login{
-    color:white;
-    border:1px solid #ffffff55;
+.botao-login {
+    color: white;
+    border: 1px solid #ffffff55;
 }
 
-.botao-login:hover{
-    background:white;
-    color:#111418;
+.botao-login:hover {
+    background: white;
+    color: #111418;
 }
 
 .botao-cadastro {
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:10px;
-    font-weight:700;
-    transition:0.3s;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
 }
 
-.botao-cadastro{
-    background:#E63946;
-    color:white;
+.botao-cadastro {
+    background: #E63946;
+    color: white;
 }
 
-.botao-cadastro:hover{
-    background:#F4C542;
-    color:#111418;
+.botao-cadastro:hover {
+    background: #F4C542;
+    color: #111418;
 }
 
-.principal{
+.principal {
     height: 100vh;
     background-image: url(imagens/lumiosecity.jpg);
     background-size: cover;
@@ -116,16 +119,16 @@ header {
     align-items: center;
 }
 
-.fundo{
+.fundo {
     position: absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: rgba(24, 24, 24, 0.45);
 }
 
-.principal_conteudo{
+.principal_conteudo {
     position: relative;
     z-index: 2;
     text-align: center;
@@ -133,10 +136,102 @@ header {
     max-width: 800px;
 }
 
-.principal_conteudo h1{
+.principal_conteudo h1 {
     font-size: 72px;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
+}
+
+.principal_conteudo p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    color: #f1f1f1;
+}
+
+.principal_botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+}
+
+.botao_comecar {
+    padding: 14px 28px;
+    border: 2px solid #e3350d;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.botao_pokedex {
+    padding: 14px 28px;
+    background: #0b5fff;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.botao_comecar:hover{
+    border: 2px solid #93240b;
+}
+
+.botao_pokedex:hover{
+    background-color: #06358b;
+    color: #111418;
+}
+
+.sobre{
+    padding: 100px ;
+    background: #222323;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 100px;
+    padding: 80px;
+}
+
+.sobre h2{
+    font-size: 42px;
+    color: #0b5fff;
+    margin-bottom: 25px;
+}
+
+.sobre_texto h2::after{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #d4af37;
+    margin-top: 10px;
+}
+
+.sobre p{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
+}
+
+.sobre_imagem{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.sobre_imagem img{
+    width: 300px;
+    border-radius: 18px;
+    transition: 0.3s;
+}
+
+.sobre_imagem img:hover{
+    transform: translateY(-8px);
 }
 
