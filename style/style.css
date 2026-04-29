@@ -7,6 +7,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.dividir_secao {
+    height: 60px;
+    background: linear-gradient(to bottom, #222323, #1c1d1d);
+}
+
 header {
     display: flex;
     align-items: center;
@@ -282,7 +287,7 @@ header {
     padding: 40px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
@@ -357,7 +362,7 @@ header {
     color: black;
 }
 
-.botao_pokedex {
+.botao_pokedex2 {
     display: block;
     margin-top: 100px;
     padding: 14px 32px;
@@ -371,9 +376,105 @@ header {
     align-self: center;
 }
 
-.botao_pokedex:hover {
+.botao_pokedex2:hover {
     background: #06358b;
     transform: translateY(-4px);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+.ferramentas {
+    padding: 100px 70px;
+    background: #222323;
+    text-align: center;
+}
+
+.ferramentas h2 {
+    font-size: 42px;
+    color: #0b5fff;
+    margin-bottom: 10px;
+}
+
+.ferramentas p {
+    color: #ccc;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.ferramentas_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.ferramenta_card {
+    background: #222323;
+    padding: 50px;
+    border-radius: 16px;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.ferramenta_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px #0b5fff33;
+}
+
+.ferramenta_card h3 {
+    margin-bottom: 50px;
+}
+
+.ferramenta_card p {
+    font-size: 14px;
+    opacity: 0.8;
+    
+}
+
+.finalizacao {
+    padding: 120px 70px;
+    background: #1c1d1d;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    border-top: 2px solid rgba(255,255,255,0.05);
+}
+
+.finalizacao h2 {
+    font-size: 52px;
+    color: #0b5fff;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.finalizacao p {
+    font-size: 20px;
+    color: #ccc;
+    max-width: 700px;
+}
+
+.cadastrarse_botao {
+    padding: 16px 34px;
+    background: #d4af37;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: 0.3s;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+.cadastrarse_botao:hover {
+    background: #6d5a1c;
+    color: rgb(150, 145, 145);
+    transform: translateY(-4px);
+}
+
+.dividir_secaofinal{
+    height: 30px;
+    background: #d4af37;
 }
 
