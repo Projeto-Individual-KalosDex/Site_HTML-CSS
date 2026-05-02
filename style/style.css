@@ -26,6 +26,41 @@ header {
     z-index: 03261041;
 }
 
+.footer{
+    background:#111418;
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.footer_conteudo h2{
+    font-size:24px;
+    margin-bottom:50px;
+}
+
+.footer_links{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    margin-bottom:50px;
+}
+
+.footer_links a{
+    text-decoration:none;
+    color:#2F80FF;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.footer_links a:hover{
+    color: #d4af37;
+}
+
+.footer_baixo{
+    font-size:12px;
+    color:#888;
+}
+
 .header-esquerda {
     display: flex;
     align-items: center;
@@ -39,10 +74,16 @@ header {
 }
 
 .body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     background-color: #222323;
     font-family: 'Montserrat', sans-serif;
+}
+
+.conteudo {
+    flex: 1;
 }
 
 .texto_logo {
@@ -206,6 +247,7 @@ header {
 .botao_pokedex:hover {
     background-color: #06358b;
     color: #111418;
+    transform: translateY(-3px);
 }
 
 .sobre {
