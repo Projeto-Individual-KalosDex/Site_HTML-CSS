@@ -26,39 +26,40 @@ header {
     z-index: 03261041;
 }
 
-.footer{
-    background:#111418;
-    color:white;
-    padding:40px 20px;
-    text-align:center;
+.footer {
+    background: #111418;
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    height: 200px;
 }
 
-.footer_conteudo h2{
-    font-size:24px;
-    margin-bottom:50px;
+.footer_conteudo h2 {
+    font-size: 24px;
+    margin-bottom: 50px;
 }
 
-.footer_links{
-    display:flex;
-    justify-content:center;
-    gap:80px;
-    margin-bottom:50px;
+.footer_links {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 50px;
 }
 
-.footer_links a{
-    text-decoration:none;
-    color:#2F80FF;
-    font-weight:600;
-    transition:0.3s;
+.footer_links a {
+    text-decoration: none;
+    color: #2F80FF;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-.footer_links a:hover{
+.footer_links a:hover {
     color: #d4af37;
 }
 
-.footer_baixo{
-    font-size:12px;
-    color:#888;
+.footer_baixo {
+    font-size: 12px;
+    color: #888;
 }
 
 .header-esquerda {
@@ -73,17 +74,23 @@ header {
     height: auto;
 }
 
-.body {
+body {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
     background-color: #222323;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .conteudo {
     flex: 1;
+}
+
+.conteudocadastrologin {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
 }
 
 .texto_logo {
@@ -93,14 +100,28 @@ header {
     font-family: 'Montserrat', sans-serif;
 }
 
-.menu {
+.menuhome {
     display: flex;
     padding-right: 100px;
     gap: 35px;
     padding-left: 30px;
 }
 
-.menu a {
+.menulogin {
+    display: flex;
+    padding-right: 199px;
+    gap: 35px;
+    padding-left: 30px;
+}
+
+.menucadastro {
+    display: flex;
+    padding-right: 220px;
+    gap: 35px;
+    padding-left: 30px;
+}
+
+.menuhome a {
     text-decoration: none;
     color: #2F80FF;
     font-weight: 700;
@@ -108,7 +129,25 @@ header {
     transition: 0.4s;
 }
 
-.menu a:hover {
+.menulogin a {
+    text-decoration: none;
+    color: #2F80FF;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.menucadastro a {
+    text-decoration: none;
+    color: #2F80FF;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.menuhome,
+.menucadastro,
+.menulogin a:hover {
     color: #F4C542;
 }
 
@@ -454,7 +493,7 @@ header {
     border-radius: 16px;
     color: white;
     transition: 0.3s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .ferramenta_card:hover {
@@ -469,7 +508,7 @@ header {
 .ferramenta_card p {
     font-size: 14px;
     opacity: 0.8;
-    
+
 }
 
 .finalizacao {
@@ -481,7 +520,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    border-top: 2px solid rgba(255,255,255,0.05);
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 .finalizacao h2 {
@@ -515,8 +554,80 @@ header {
     transform: translateY(-4px);
 }
 
-.dividir_secaofinal{
+.dividir_secaofinal {
     height: 30px;
     background: #d4af37;
 }
 
+.containerloginecadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 40px;
+    width: 30%;
+}
+
+.containerloginecadastro input {
+    width: 300px;
+    padding: 12px;
+    margin-bottom: 18px;
+    background-color: #1c1d1d;
+    color: white;
+    border: 2px solid #888;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.containerloginecadastro input:focus {
+    border-color: #0b5fff;
+    box-shadow: 0 0 10px #0b5fff66;
+}
+
+.containerloginecadastro span {
+    color: white;
+    align-self: flex-start;
+    padding-left: 36px;
+}
+
+.botao_cadastrologin {
+    padding: 12px 20px;
+    border: 2px solid #0b5fff;
+    color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao_cadastrologin:hover {
+    transform: translateY(-2px);
+}
+
+.titulocadastrologin {
+    color: #d4af37;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+
+.botao_versenha {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.input_senha{
+    position: relative;
+}
