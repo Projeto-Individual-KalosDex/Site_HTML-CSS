@@ -40,33 +40,66 @@
             <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
 
             <span>Pokémon Favorito de Kalos:</span> <br>
-            <select id="select_favorito">
-                <option value="">Selecione um Pokémon</option>
+            <select class="select_favorito" id="ipt_favorito">
+                <option value="0">Selecione um Pokémon</option>
             </select> <br>
 
             <span>Tipo Favorito:</span> <br>
             <select id="select_tipo">
-                <option>Selecione um tipo</option>
-                <option>Água</option>
+                <option>Normal</option>
                 <option>Fogo</option>
+                <option>Água</option>
                 <option>Planta</option>
                 <option>Elétrico</option>
+                <option>Gelo</option>
+                <option>Lutador</option>
+                <option>Veneno</option>
+                <option>Terrestre</option>
+                <option>Voador</option>
+                <option>Psíquico</option>
+                <option>Inseto</option>
+                <option>Pedra</option>
+                <option>Fantasma</option>
                 <option>Dragão</option>
+                <option>Sombrio</option>
+                <option>Aço</option>
                 <option>Fada</option>
-            </select>
+            </select> <br>
 
 
             <span>Inicial escolhido:</span> <br>
             <select id="select_inicial">
-        <option value="">Selecione um inicial</option>
+                <option value="">Selecione um inicial</option>
+                <option>Chespin</option>
+                <option>Fennekin</option>
+                <option>Froakie</option>
+            </select> <br>
 
-        <option>Chespin</option>
-        <option>Fennekin</option>
-        <option>Froakie</option>
-    </select>
 
+            <span>Time ideal:</span> <br>
+            <select class="select_time" id="time_1">
+                <option value="0">Pokémon 1</option>
+            </select>
 
-            <span>Time ideal:</span>
+            <select class="select_time" id="time_2">
+                <option value="0">Pokémon 2</option>
+            </select>
+
+            <select class="select_time" id="time_3">
+                <option value="0">Pokémon 3</option>
+            </select>
+
+            <select class="select_time" id="time_4">
+                <option value="0">Pokémon 4</option>
+            </select>
+
+            <select class="select_time" id="time_5">
+                <option value="0">Pokémon 5</option>
+            </select>
+
+            <select class="select_time" id="time_6">
+                <option value="0">Pokémon 6</option>
+            </select> <br>
 
             <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
         </div>
@@ -89,7 +122,32 @@
     </footer>
 
 </body>
+<script src="../pokemon.js"></script>
 <script>
+
+    var selectsFavorito = document.querySelectorAll(".select_favorito");
+    var selectsTime = document.querySelectorAll(".select_time");
+
+    for (let i = 0; i < selectsTime.length; i++) {
+
+        for (let j = 0; j < pokemonsXY.length; j++) {
+
+            selectsTime[i].innerHTML += `
+        <option>${pokemonsXY[j]}</option>
+        `;
+        }
+    }
+
+    for (let i = 0; i < selectsFavorito.length; i++) {
+
+        for (let j = 0; j < pokemonsKalos.length; j++) {
+
+            selectsFavorito[i].innerHTML += `
+        <option>${pokemonsKalos[j]}</option>
+        `;
+        }
+    }
+
     function cadastrar() {
         var nome = ipt_nome.value;
         var email = ipt_email.value;
@@ -124,23 +182,7 @@
         }
     }
 
-    function mostrarSenha() {
-        var senha = document.getElementById("ipt_senha");
-        var senhaconfirmacao = document.getElementById("ipt_senhaconfirmacao")
 
-        if (senha.type == "password") {
-            senha.type = "text";
-        } else {
-            senha.type = "password";
-        }
-
-
-        if (senhaconfirmacao.type == "password") {
-            senhaconfirmacao.type = "text";
-        } else {
-            senhaconfirmacao.type = "password";
-        }
-    }
 
 </script>
 

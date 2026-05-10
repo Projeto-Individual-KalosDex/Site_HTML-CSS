@@ -88,10 +88,10 @@ body {
 .conteudocadastrologin {
     flex: 1;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     padding-bottom: 100px;
-    gap:40px;
+    gap: 40px;
 }
 
 .texto_logo {
@@ -563,14 +563,14 @@ body {
 .containerimagem {
     border: 2px solid #0b5fff;
     border-radius: 10px;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 800px;
     display: flex;
     position: relative;
     overflow: hidden;
 }
 
-.containerimagem::after{
+.containerimagem::after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -581,17 +581,17 @@ body {
     opacity: 0.8;
 }
 
-.texto_imagem{
+.texto_imagem {
     position: absolute;
     bottom: 30px;
     left: 30px;
     color: white;
-    font-size: 32px;
+    font-size: 64px;
     font-weight: 800;
     z-index: 1000;
 }
 
-.texto_imagem span{
+.texto_imagem span {
     position: absolute;
     bottom: 30px;
     left: 30px;
@@ -640,6 +640,22 @@ body {
     padding-left: 36px;
 }
 
+.containerloginecadastro select {
+    width: 300px;
+    padding: 12px;
+    background-color: #1c1d1d;
+    color: #888;
+    border: 2px solid #888;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    transition: 0.3s;
+}
+
+.containerloginecadastro select:focus {
+    border-color: #0b5fff;
+    box-shadow: 0 0 10px #0b5fff66;
+}
+
 .botao_cadastrologin {
     padding: 12px 20px;
     border: 2px solid #e3350d;
@@ -676,6 +692,6 @@ body {
     cursor: pointer;
 }
 
-.input_senha{
+.input_senha {
     position: relative;
 }
