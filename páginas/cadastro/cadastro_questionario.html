@@ -77,29 +77,23 @@
 
 
             <span>Time ideal:</span> <br>
-            <select class="select_time" id="time_1">
-                <option value="0">Pokémon 1</option>
-            </select>
+            <input type="text" list="pokemons" placeholder="Pokémon 1">
+            <datalist id="pokemons"></datalist>
 
-            <select class="select_time" id="time_2">
-                <option value="0">Pokémon 2</option>
-            </select>
+            <input type="text" list="pokemons" placeholder="Pokémon 2">
+            <datalist id="pokemons"></datalist>
 
-            <select class="select_time" id="time_3">
-                <option value="0">Pokémon 3</option>
-            </select>
+            <input type="text" list="pokemons" placeholder="Pokémon 3">
+            <datalist id="pokemons"></datalist>
 
-            <select class="select_time" id="time_4">
-                <option value="0">Pokémon 4</option>
-            </select>
+            <input type="text" list="pokemons" placeholder="Pokémon 4">
+            <datalist id="pokemons"></datalist>
 
-            <select class="select_time" id="time_5">
-                <option value="0">Pokémon 5</option>
-            </select>
+            <input type="text" list="pokemons" placeholder="Pokémon 5">
+            <datalist id="pokemons"></datalist>
 
-            <select class="select_time" id="time_6">
-                <option value="0">Pokémon 6</option>
-            </select> <br>
+            <input type="text" list="pokemons" placeholder="Pokémon 6">
+            <datalist id="pokemons"></datalist> <br>
 
             <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
         </div>
@@ -124,19 +118,16 @@
 </body>
 <script src="../pokemon.js"></script>
 <script>
+    var datalist = document.getElementById("pokemons");
 
-    var selectsFavorito = document.querySelectorAll(".select_favorito");
-    var selectsTime = document.querySelectorAll(".select_time");
+    for (let i = 0; i < pokemonsXY.length; i++) {
 
-    for (let i = 0; i < selectsTime.length; i++) {
-
-        for (let j = 0; j < pokemonsXY.length; j++) {
-
-            selectsTime[i].innerHTML += `
-        <option>${pokemonsXY[j]}</option>
-        `;
-        }
+        datalist.innerHTML += `
+        <option value="${pokemonsXY[i]}">
+    `;
     }
+    
+    var selectsFavorito = document.querySelectorAll(".select_favorito");
 
     for (let i = 0; i < selectsFavorito.length; i++) {
 
