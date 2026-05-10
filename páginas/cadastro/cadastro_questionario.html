@@ -23,29 +23,50 @@
             <a href="../login/login.html" class="botao-login">Login</a>
         </div>
     </header>
-    <h2 class="titulocadastrologin">Cadastrar-se</h2>
+    <h2 class="titulocadastrologin">Monte seu Perfil de Treinador</h2>
 
     <main class="conteudocadastrologin">
 
+        <div class="containerimagem">
+            <h2 class="texto_imagem">Bem-vindo à <div style="color: #d4af37;">Kalos</div>
+            </h2>
+
+            <img src="../../style/imagens/lumiosecity.jpg" class="imagem_questionario">
+        </div>
+
         <div class="containerloginecadastro">
 
-            <span>Nome:</span> <br>
-            <input type="text" id="ipt_nome" placeholder="Seu Nome"> <br>
+            <span>Nome do Treinador:</span> <br>
+            <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
 
-            <span>Email:</span> <br>
-            <input type="email" id="ipt_email" placeholder="email@provedor.com"> <br>
+            <span>Pokémon Favorito de Kalos:</span> <br>
+            <select id="select_favorito">
+                <option value="">Selecione um Pokémon</option>
+            </select> <br>
 
-            <span>Senha:</span> <br>
-            <div class="input_senha">
-                <input type="password" id="ipt_senha" placeholder="******">
-                <button onclick="mostrarSenha()" class="botao_versenha">Ver Senha</button> <br>
-            </div>
-            <span>Confirmação da Senha:</span> <br>
+            <span>Tipo Favorito:</span> <br>
+            <select id="select_tipo">
+                <option>Selecione um tipo</option>
+                <option>Água</option>
+                <option>Fogo</option>
+                <option>Planta</option>
+                <option>Elétrico</option>
+                <option>Dragão</option>
+                <option>Fada</option>
+            </select>
 
-            <div class="input_senha">
-                <input type="password" id="ipt_senhaconfirmacao" placeholder="******">
-                <button onclick="mostrarSenha()" class="botao_versenha">Ver Senha</button> <br>
-            </div>
+
+            <span>Inicial escolhido:</span> <br>
+            <select id="select_inicial">
+        <option value="">Selecione um inicial</option>
+
+        <option>Chespin</option>
+        <option>Fennekin</option>
+        <option>Froakie</option>
+    </select>
+
+
+            <span>Time ideal:</span>
 
             <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
         </div>
@@ -99,7 +120,7 @@
             erro = true
         }
         if (erro == false) {
-            window.location.href ="cadastro_questionario.html";
+            window.location.href = "cadastro_questionario.html";
         }
     }
 
@@ -113,7 +134,7 @@
             senha.type = "password";
         }
 
-    
+
         if (senhaconfirmacao.type == "password") {
             senhaconfirmacao.type = "text";
         } else {
