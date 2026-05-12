@@ -69,30 +69,30 @@
 
             <span>Inicial escolhido:</span> <br>
             <select id="select_inicial">
-                <option value="">Selecione um inicial</option>
-                <option>Chespin</option>
-                <option>Fennekin</option>
-                <option>Froakie</option>
+                <option value="0">Selecione um inicial</option>
+                <option value="Chespin">Chespin</option>
+                <option value="Fennekin">Fennekin</option>
+                <option value="Froakie">Froakie</option>
             </select> <br>
 
 
             <span>Time ideal:</span> <br>
-            <input type="text" list="pokemons" placeholder="Pokémon 1">
+            <input type="text" list="pokemons" placeholder="Pokémon 1" id="pokemon1">
             <datalist id="pokemons"></datalist>
 
-            <input type="text" list="pokemons" placeholder="Pokémon 2">
+            <input type="text" list="pokemons" placeholder="Pokémon 2" id="pokemon2">
             <datalist id="pokemons"></datalist>
 
-            <input type="text" list="pokemons" placeholder="Pokémon 3">
+            <input type="text" list="pokemons" placeholder="Pokémon 3" id="pokemon3">
             <datalist id="pokemons"></datalist>
 
-            <input type="text" list="pokemons" placeholder="Pokémon 4">
+            <input type="text" list="pokemons" placeholder="Pokémon 4" id="pokemon4">
             <datalist id="pokemons"></datalist>
 
-            <input type="text" list="pokemons" placeholder="Pokémon 5">
+            <input type="text" list="pokemons" placeholder="Pokémon 5" id="pokemon5">
             <datalist id="pokemons"></datalist>
 
-            <input type="text" list="pokemons" placeholder="Pokémon 6">
+            <input type="text" list="pokemons" placeholder="Pokémon 6" id="pokemon6">
             <datalist id="pokemons"></datalist> <br>
 
             <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
@@ -126,7 +126,7 @@
         <option value="${pokemonsXY[i]}">
     `;
     }
-    
+
     var selectsFavorito = document.querySelectorAll(".select_favorito");
 
     for (let i = 0; i < selectsFavorito.length; i++) {
@@ -140,36 +140,46 @@
     }
 
     function cadastrar() {
-        var nome = ipt_nome.value;
-        var email = ipt_email.value;
-        var senha = ipt_senha.value;
-        var senhaconfirmacao = ipt_senhaconfirmacao.value;
+        var nometreinador = ipt_nometreinador.value;
+        var favorito = ipt_favorito.value;
+        var inicial = select_inicial.value;
+        var pokemon1 = document.getElementById("pokemon1").value;
+        var pokemon2 = document.getElementById("pokemon2").value;
+        var pokemon3 = document.getElementById("pokemon3").value;
+        var pokemon4 = document.getElementById("pokemon4").value;
+        var pokemon5 = document.getElementById("pokemon5").value;
+        var pokemon6 = document.getElementById("pokemon6").value;
+
         var erro = false;
-        if (nome == "" ||
-            email == "" ||
-            senha == "" ||
-            senhaconfirmacao == "") {
+        if (nometreinador == "" ||
+            favorito == "0" ||
+            inicial == "0" ||
+            pokemon1 == "" ||
+            pokemon2 == "" ||
+            pokemon3 == "" ||
+            pokemon4 == "" ||
+            pokemon5 == "" ||
+            pokemon6 == "") {
             alert('Todos os Campos devem estar preenchidos')
             erro = true;
         }
-        if (nome.length > 50) {
+        if (nometreinador.length > 50) {
             alert('Nome longo demais')
             erro = true;
         }
-        if (email.indexOf('@') == -1) {
-            alert('Email Inválido')
-            erro = true
-        }
-        if (email.length == 50) {
-            alert('Email longo demais')
-            erro = true
-        }
-        if (senha != senhaconfirmacao) {
-            alert('Senha e confirmação diferentes')
-            erro = true
+        if (
+            !pokemonsXY.includes(pokemon1) ||
+            !pokemonsXY.includes(pokemon2) ||
+            !pokemonsXY.includes(pokemon3) ||
+            !pokemonsXY.includes(pokemon4) ||
+            !pokemonsXY.includes(pokemon5) ||
+            !pokemonsXY.includes(pokemon6)
+        ) {
+            alert("Pokémon inválido no time");
+            erro = true;
         }
         if (erro == false) {
-            window.location.href = "cadastro_questionario.html";
+            window.location.href = "../login/login.html";
         }
     }
 
