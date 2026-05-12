@@ -40,9 +40,8 @@
             <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
 
             <span>Pokémon Favorito de Kalos:</span> <br>
-            <select class="select_favorito" id="ipt_favorito">
-                <option value="0">Selecione um Pokémon</option>
-            </select> <br>
+            <input type="text" list="pokemonkalosfavorito" id="pokemonskalos" placeholder="Seu Pokémon Favorito da Região"> 
+            <datalist id="pokemonkalosfavorito"></datalist><br>
 
             <span>Tipo Favorito:</span> <br>
             <select id="select_tipo">
@@ -127,16 +126,14 @@
     `;
     }
 
-    var selectsFavorito = document.querySelectorAll(".select_favorito");
+    var datalist1= document.getElementById("pokemonkalosfavorito");
 
-    for (let i = 0; i < selectsFavorito.length; i++) {
+    for (let i = 0; i < pokemonsKalos.length; i++) {
 
-        for (let j = 0; j < pokemonsKalos.length; j++) {
-
-            selectsFavorito[i].innerHTML += `
-        <option>${pokemonsKalos[j]}</option>
+        datalist1.innerHTML += `
+        <option value="${pokemonsKalos[i]}">
         `;
-        }
+
     }
 
     function cadastrar() {
