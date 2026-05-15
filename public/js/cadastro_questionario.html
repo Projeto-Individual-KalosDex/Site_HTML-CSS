@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style/style.css">
+    <title>Cadastrar-se</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-esquerda">
+            <img src="../../style/imagens/logo_KalosDex-semfundo.png" class="logo">
+            <h3 class="texto_logo">KalosDex</h3>
+        </div>
+
+        <nav class="menucadastro">
+            <a href="../../páginas/home/index.html">Home</a>
+        </nav>
+
+        <div class="header-direita">
+            <a href="../login/login.html" class="botao-login">Login</a>
+        </div>
+    </header>
+    <h2 class="titulocadastrologin">Monte seu Perfil de Treinador</h2>
+
+    <main class="conteudocadastrologin">
+
+        <div class="containerimagem">
+            <h2 class="texto_imagem">Bem-vindo à <div style="color: #d4af37;">Kalos</div>
+            </h2>
+
+            <img src="../../style/imagens/lumiosecity.jpg" class="imagem_questionario">
+        </div>
+
+        <div class="containerloginecadastro">
+
+            <span>Nome do Treinador:</span> <br>
+            <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
+
+            <span>Pokémon Favorito de Kalos:</span> <br>
+            <input type="text" list="pokemonkalosfavorito" id="pokemonskalos" placeholder="Seu Pokémon Favorito da Região"> 
+            <datalist id="pokemonkalosfavorito"></datalist><br>
+
+            <span>Tipo Favorito:</span> <br>
+            <select id="select_tipo">
+                <option>Normal</option>
+                <option>Fogo</option>
+                <option>Água</option>
+                <option>Planta</option>
+                <option>Elétrico</option>
+                <option>Gelo</option>
+                <option>Lutador</option>
+                <option>Veneno</option>
+                <option>Terrestre</option>
+                <option>Voador</option>
+                <option>Psíquico</option>
+                <option>Inseto</option>
+                <option>Pedra</option>
+                <option>Fantasma</option>
+                <option>Dragão</option>
+                <option>Sombrio</option>
+                <option>Aço</option>
+                <option>Fada</option>
+            </select> <br>
+
+
+            <span>Inicial escolhido:</span> <br>
+            <select id="select_inicial">
+                <option value="0">Selecione um inicial</option>
+                <option value="Chespin">Chespin</option>
+                <option value="Fennekin">Fennekin</option>
+                <option value="Froakie">Froakie</option>
+            </select> <br>
+
+
+            <span>Time ideal:</span> <br>
+            <input type="text" list="pokemons" placeholder="Pokémon 1" id="pokemon1">
+            <datalist id="pokemons"></datalist>
+
+            <input type="text" list="pokemons" placeholder="Pokémon 2" id="pokemon2">
+            <datalist id="pokemons"></datalist>
+
+            <input type="text" list="pokemons" placeholder="Pokémon 3" id="pokemon3">
+            <datalist id="pokemons"></datalist>
+
+            <input type="text" list="pokemons" placeholder="Pokémon 4" id="pokemon4">
+            <datalist id="pokemons"></datalist>
+
+            <input type="text" list="pokemons" placeholder="Pokémon 5" id="pokemon5">
+            <datalist id="pokemons"></datalist>
+
+            <input type="text" list="pokemons" placeholder="Pokémon 6" id="pokemon6">
+            <datalist id="pokemons"></datalist> <br>
+
+            <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer_conteudo">
+            <h2>KalosDex</h2>
+
+            <div class="footer_links">
+                <a href="../../páginas/home/index.html">Home</a>
+            </div>
+        </div>
+
+        <div class="footer_baixo">
+            <p>© 2026 KalosDex - Projeto Individual</p>
+        </div>
+
+    </footer>
+
+</body>
+<script src="../pokemon.js"></script>
+<script>
+    var datalist = document.getElementById("pokemons");
+
+    for (let i = 0; i < pokemonsXY.length; i++) {
+
+        datalist.innerHTML += `
+        <option value="${pokemonsXY[i]}">
+    `;
+    }
+
+    var datalist1= document.getElementById("pokemonkalosfavorito");
+
+    for (let i = 0; i < pokemonsKalos.length; i++) {
+
+        datalist1.innerHTML += `
+        <option value="${pokemonsKalos[i]}">
+        `;
+
+    }
+
+    function cadastrar() {
+        var nometreinador = ipt_nometreinador.value;
+        var favorito = ipt_favorito.value;
+        var inicial = select_inicial.value;
+        var pokemon1 = document.getElementById("pokemon1").value;
+        var pokemon2 = document.getElementById("pokemon2").value;
+        var pokemon3 = document.getElementById("pokemon3").value;
+        var pokemon4 = document.getElementById("pokemon4").value;
+        var pokemon5 = document.getElementById("pokemon5").value;
+        var pokemon6 = document.getElementById("pokemon6").value;
+
+        var erro = false;
+        if (nometreinador == "" ||
+            favorito == "0" ||
+            inicial == "0" ||
+            pokemon1 == "" ||
+            pokemon2 == "" ||
+            pokemon3 == "" ||
+            pokemon4 == "" ||
+            pokemon5 == "" ||
+            pokemon6 == "") {
+            alert('Todos os Campos devem estar preenchidos')
+            erro = true;
+        }
+        if (nometreinador.length > 50) {
+            alert('Nome longo demais')
+            erro = true;
+        }
+        if (
+            !pokemonsXY.includes(pokemon1) ||
+            !pokemonsXY.includes(pokemon2) ||
+            !pokemonsXY.includes(pokemon3) ||
+            !pokemonsXY.includes(pokemon4) ||
+            !pokemonsXY.includes(pokemon5) ||
+            !pokemonsXY.includes(pokemon6)
+        ) {
+            alert("Pokémon inválido no time");
+            erro = true;
+        }
+        if (erro == false) {
+            window.location.href = "../login/login.html";
+        }
+    }
+
+
+
+</script>
+
+</html>
