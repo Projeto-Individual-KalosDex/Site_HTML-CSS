@@ -40,7 +40,8 @@
             <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
 
             <span>Pokémon Favorito de Kalos:</span> <br>
-            <input type="text" list="pokemonkalosfavorito" id="pokemonskalos" placeholder="Seu Pokémon Favorito da Região"> 
+            <input type="text" list="pokemonkalosfavorito" id="pokemonskalos"
+                placeholder="Seu Pokémon Favorito da Região">
             <datalist id="pokemonkalosfavorito"></datalist><br>
 
             <span>Tipo Favorito:</span> <br>
@@ -77,22 +78,18 @@
 
             <span>Time ideal:</span> <br>
             <input type="text" list="pokemons" placeholder="Pokémon 1" id="pokemon1">
-            <datalist id="pokemons"></datalist>
 
             <input type="text" list="pokemons" placeholder="Pokémon 2" id="pokemon2">
-            <datalist id="pokemons"></datalist>
 
             <input type="text" list="pokemons" placeholder="Pokémon 3" id="pokemon3">
-            <datalist id="pokemons"></datalist>
 
             <input type="text" list="pokemons" placeholder="Pokémon 4" id="pokemon4">
-            <datalist id="pokemons"></datalist>
 
             <input type="text" list="pokemons" placeholder="Pokémon 5" id="pokemon5">
-            <datalist id="pokemons"></datalist>
 
             <input type="text" list="pokemons" placeholder="Pokémon 6" id="pokemon6">
-            <datalist id="pokemons"></datalist> <br>
+
+            <datalist id="pokemons"></datalist>
 
             <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
         </div>
@@ -115,7 +112,7 @@
     </footer>
 
 </body>
-<script src="../pokemon.js"></script>
+<script src="pokemon.js"></script>
 <script>
     var datalist = document.getElementById("pokemons");
 
@@ -126,7 +123,7 @@
     `;
     }
 
-    var datalist1= document.getElementById("pokemonkalosfavorito");
+    var datalist1 = document.getElementById("pokemonkalosfavorito");
 
     for (let i = 0; i < pokemonsKalos.length; i++) {
 
@@ -136,9 +133,9 @@
 
     }
 
-    function cadastrar() {
+    async function cadastrar() {
         var nometreinador = ipt_nometreinador.value;
-        var favorito = ipt_favorito.value;
+        var favorito = pokemonskalos.value;
         var inicial = select_inicial.value;
         var pokemon1 = document.getElementById("pokemon1").value;
         var pokemon2 = document.getElementById("pokemon2").value;
@@ -146,6 +143,7 @@
         var pokemon4 = document.getElementById("pokemon4").value;
         var pokemon5 = document.getElementById("pokemon5").value;
         var pokemon6 = document.getElementById("pokemon6").value;
+
 
         var erro = false;
         if (nometreinador == "" ||
@@ -176,7 +174,97 @@
             erro = true;
         }
         if (erro == false) {
-            window.location.href = "../login/login.html";
+
+            // Pokemon 1
+            var resposta1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon1.toLowerCase()}`);
+
+            var dados1 = await resposta1.json();
+
+            var tipo1_1 = dados1.types[0].type.name;
+            var tipo2_1 = '';
+
+            if (dados1.types.length > 1) {
+                tipo2_1 = dados1.types[1].type.name;
+            }
+
+            console.log('Pokemon 1:' +tipo1_1)
+            console.log('Pokemon 1:' +tipo2_1)
+
+            // Pokemon 2
+            var resposta2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon2.toLowerCase()}`);
+
+            var dados2 = await resposta2.json();
+
+            var tipo1_2 = dados2.types[0].type.name;
+            var tipo2_2 = '';
+
+            if (dados2.types.length > 1) {
+                tipo2_2 = dados2.types[1].type.name;
+            }
+
+            console.log('Pokemon 2:' +tipo1_2)
+            console.log('Pokemon 2:' +tipo2_2)
+
+            // Pokemon 3
+            var resposta3 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon3.toLowerCase()}`);
+
+            var dados3 = await resposta3.json();
+
+            var tipo1_3 = dados3.types[0].type.name;
+            var tipo2_3 = '';
+
+            if (dados3.types.length > 1) {
+                tipo2_3 
+                = dados3.types[1].type.name;
+            }
+
+            console.log('Pokemon 3:' +tipo1_3)
+            console.log('Pokemon 3:' +tipo2_3)
+
+            // Pokemon 4
+            var resposta4 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon4.toLowerCase()}`);
+
+            var dados4 = await resposta4.json();
+
+            var tipo1_4 = dados4.types[0].type.name;
+            var tipo2_4 = '';
+
+            if (dados4.types.length > 1) {
+                tipo2_4 = dados4.types[1].type.name;
+            }
+
+            console.log('Pokemon 4:' +tipo1_4)
+            console.log('Pokemon 4:' +tipo2_4)
+
+            // Pokemon 5
+            var resposta5 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon5.toLowerCase()}`);
+
+            var dados5 = await resposta5.json();
+
+            var tipo1_5 = dados5.types[0].type.name;
+            var tipo2_5 = '';
+
+            if (dados5.types.length > 1) {
+                tipo2_5 = dados5.types[1].type.name;
+            }
+
+            console.log('Pokemon 5:' +tipo1_5)
+            console.log('Pokemon 5:' +tipo2_5)
+
+            // Pokemon 6
+            var resposta6 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon6.toLowerCase()}`);
+
+            var dados6 = await resposta6.json();
+
+            var tipo1_6 = dados6.types[0].type.name;
+            var tipo2_6 = '';
+
+            if (dados6.types.length > 1) {
+                tipo2_6 = dados6.types[1].type.name;
+            }
+
+            console.log('Pokemon 6:' +tipo1_6)
+            console.log('Pokemon 6:' +tipo2_6)
         }
     }
 
