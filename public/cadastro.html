@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Cadastrar-se</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-esquerda">
+      <img src="assets/imagens/logo_KalosDex-semfundo.png" class="logo">
+      <h3 class="texto_logo">KalosDex</h3>
+    </div>
+
+    <nav class="menucadastro">
+      <a href="index.html">Home</a>
+    </nav>
+
+    <div class="header-direita">
+      <a href="login.html" class="botao-login">Login</a>
+    </div>
+  </header>
+
+  <div id="parte1" style="display: block;">
+    <h2 class="titulocadastrologin">Cadastrar-se</h2>
+
+    <main class="conteudocadastrologin">
+
+      <div class="containerloginecadastro">
+
+        <span>Nome:</span> <br>
+        <input type="text" id="ipt_nome" placeholder="Seu Nome"> <br>
+
+        <span>Email:</span> <br>
+        <input type="email" id="ipt_email" placeholder="email@provedor.com"> <br>
+
+        <span>Senha:</span> <br>
+        <div class="input_senha">
+          <input type="password" id="ipt_senha" placeholder="******">
+          <button onclick="mostrarSenha()" class="botao_versenha">Ver Senha</button> <br>
+        </div>
+        <span>Confirmação da Senha:</span> <br>
+
+        <div class="input_senha">
+          <input type="password" id="ipt_senhaconfirmacao" placeholder="******">
+          <button onclick="mostrarSenha()" class="botao_versenha">Ver Senha</button> <br>
+        </div>
+
+        <button onclick="cadastrar1()" class="botao_cadastrologin">Cadastrar</button>
+      </div>
+    </main>
+  </div>
+
+  <div id="parte2" style="display: none;">
+    <h2 class="titulocadastrologin">Monte seu Perfil de Treinador</h2>
+
+    <main class="conteudocadastrologin">
+
+      <div class="containerimagem">
+        <h2 class="texto_imagem">Bem-vindo à <div style="color: #d4af37;">Kalos</div>
+        </h2>
+
+        <img src="assets/imagens/lumiosecity.jpg" class="imagem_questionario">
+      </div>
+
+      <div class="containerloginecadastro">
+
+        <span>Nome do Treinador:</span> <br>
+        <input type="text" id="ipt_nometreinador" placeholder="Nome do seu Treinador"> <br>
+
+        <span>Pokémon Favorito de Kalos:</span> <br>
+        <input type="text" list="pokemonkalosfavorito" id="pokemonskalos" placeholder="Seu Pokémon Favorito da Região">
+        <datalist id="pokemonkalosfavorito"></datalist><br>
+
+        <span>Inicial escolhido:</span> <br>
+        <select id="select_inicial">
+          <option value="0">Selecione um inicial</option>
+          <option value="Chespin">Chespin</option>
+          <option value="Fennekin">Fennekin</option>
+          <option value="Froakie">Froakie</option>
+        </select> <br>
+
+
+        <span>Time ideal:</span> <br>
+        <input type="text" list="pokemons" placeholder="Pokémon 1" id="pokemon1">
+
+        <input type="text" list="pokemons" placeholder="Pokémon 2" id="pokemon2">
+
+        <input type="text" list="pokemons" placeholder="Pokémon 3" id="pokemon3">
+
+        <input type="text" list="pokemons" placeholder="Pokémon 4" id="pokemon4">
+
+        <input type="text" list="pokemons" placeholder="Pokémon 5" id="pokemon5">
+
+        <input type="text" list="pokemons" placeholder="Pokémon 6" id="pokemon6">
+
+        <datalist id="pokemons"></datalist>
+
+        <button onclick="cadastrar()" class="botao_cadastrologin">Cadastrar</button>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+
+    <div class="footer_conteudo">
+      <h2>KalosDex</h2>
+
+      <div class="footer_links">
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <div class="footer_baixo">
+      <p>© 2026 KalosDex - Projeto Individual</p>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
+<script src="../js/pokemon.js"></script>
+<script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaEmpresasCadastradas = [];
+
+
+  var datalist = document.getElementById("pokemons");
+
+  for (let i = 0; i < pokemonsXY.length; i++) {
+
+    datalist.innerHTML += `
+        <option value="${pokemonsXY[i]}">
+    `;
+  }
+
+  var datalist1 = document.getElementById("pokemonkalosfavorito");
+
+  for (let i = 0; i < pokemonsKalos.length; i++) {
+
+    datalist1.innerHTML += `
+    <option value="${pokemonsKalos[i]}">
+      `;
+
+  }
+
+  function cadastrar1() {
+    var nome = ipt_nome.value;
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
+    var senhaconfirmacao = ipt_senhaconfirmacao.value;
+    var erro = false;
+
+    if (nome == "" ||
+      email == "" ||
+      senha == "" ||
+      senhaconfirmacao == "") {
+      alert('Todos os Campos devem estar preenchidos')
+      erro = true;
+    }
+    if (nome.length > 50) {
+      alert('Nome longo demais')
+      erro = true;
+    }
+    if (email.indexOf('@') == -1) {
+      alert('Email Inválido')
+      erro = true
+    }
+    if (email.length == 50) {
+      alert('Email longo demais')
+      erro = true
+    }
+    if (senha != senhaconfirmacao) {
+      alert('Senha e confirmação diferentes')
+      erro = true
+    }
+    if (erro == false) {
+      parte1.style.display = "none";
+      parte2.style.display = "block";
+    }
+
+  }
+
+  async function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = ipt_nome.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = ipt_senhaconfirmacao.value;
+    var nometreinadorVar = ipt_nometreinador.value;
+    var favoritoVar = pokemonskalos.value;
+    var inicialVar = select_inicial.value;
+    var pokemon1Var = document.getElementById("pokemon1").value;
+    var pokemon2Var = document.getElementById("pokemon2").value;
+    var pokemon3Var = document.getElementById("pokemon3").value;
+    var pokemon4Var = document.getElementById("pokemon4").value;
+    var pokemon5Var = document.getElementById("pokemon5").value;
+    var pokemon6Var = document.getElementById("pokemon6").value;
+
+    var erro = false;
+
+    // Verificando se há algum campo em branco
+    if (nometreinadorVar == "" ||
+      favoritoVar == "" ||
+      inicialVar == "0" ||
+      pokemon1Var == "" ||
+      pokemon2Var == "" ||
+      pokemon3Var == "" ||
+      pokemon4Var == "" ||
+      pokemon5Var == "" ||
+      pokemon6Var == "") {
+      alert('Todos os Campos devem estar preenchidos')
+      erro = true;
+    }
+    if (nometreinadorVar.length > 50) {
+      alert('Nome longo demais')
+      erro = true;
+    }
+    if (
+      !pokemonsXY.includes(pokemon1Var) ||
+      !pokemonsXY.includes(pokemon2Var) ||
+      !pokemonsXY.includes(pokemon3Var) ||
+      !pokemonsXY.includes(pokemon4Var) ||
+      !pokemonsXY.includes(pokemon5Var) ||
+      !pokemonsXY.includes(pokemon6Var)
+    ) {
+      alert("Pokémon inválido no time");
+      erro = true;
+    }
+    if (erro == false) {
+
+      // Pokemon 1
+      var resposta1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon1Var.toLowerCase()}`);
+
+      var dados1 = await resposta1.json();
+
+      var tipo1_1 = dados1.types[0].type.name;
+      var tipo2_1 = '';
+
+      if (dados1.types.length > 1) {
+        tipo2_1 = dados1.types[1].type.name;
+      }
+
+      console.log('Pokemon 1:' + tipo1_1)
+      console.log('Pokemon 1:' + tipo2_1)
+
+      // Pokemon 2
+      var resposta2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon2Var.toLowerCase()}`);
+
+      var dados2 = await resposta2.json();
+
+      var tipo1_2 = dados2.types[0].type.name;
+      var tipo2_2 = '';
+
+      if (dados2.types.length > 1) {
+        tipo2_2 = dados2.types[1].type.name;
+      }
+
+      console.log('Pokemon 2:' + tipo1_2)
+      console.log('Pokemon 2:' + tipo2_2)
+
+      // Pokemon 3
+      var resposta3 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon3Var.toLowerCase()}`);
+
+      var dados3 = await resposta3.json();
+
+      var tipo1_3 = dados3.types[0].type.name;
+      var tipo2_3 = '';
+
+      if (dados3.types.length > 1) {
+        tipo2_3
+          = dados3.types[1].type.name;
+      }
+
+      console.log('Pokemon 3:' + tipo1_3)
+      console.log('Pokemon 3:' + tipo2_3)
+
+      // Pokemon 4
+      var resposta4 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon4Var.toLowerCase()}`);
+
+      var dados4 = await resposta4.json();
+
+      var tipo1_4 = dados4.types[0].type.name;
+      var tipo2_4 = '';
+
+      if (dados4.types.length > 1) {
+        tipo2_4 = dados4.types[1].type.name;
+      }
+
+      console.log('Pokemon 4:' + tipo1_4)
+      console.log('Pokemon 4:' + tipo2_4)
+
+      // Pokemon 5
+      var resposta5 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon5Var.toLowerCase()}`);
+
+      var dados5 = await resposta5.json();
+
+      var tipo1_5 = dados5.types[0].type.name;
+      var tipo2_5 = '';
+
+      if (dados5.types.length > 1) {
+        tipo2_5 = dados5.types[1].type.name;
+      }
+
+      console.log('Pokemon 5:' + tipo1_5)
+      console.log('Pokemon 5:' + tipo2_5)
+
+      // Pokemon 6
+      var resposta6 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon6Var.toLowerCase()}`);
+
+      var dados6 = await resposta6.json();
+
+      var tipo1_6 = dados6.types[0].type.name;
+      var tipo2_6 = '';
+
+      if (dados6.types.length > 1) {
+        tipo2_6 = dados6.types[1].type.name;
+      }
+
+      console.log('Pokemon 6:' + tipo1_6)
+      console.log('Pokemon 6:' + tipo2_6)
+
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          nometreinadorServer: nometreinadorVar,
+          favoritoServer: favoritoVar,
+          inicialServer: inicialVar,
+          pokemon1Server: pokemon1Var,
+          tipo1_1Server: tipo1_1,
+          tipo2_1Server: tipo2_1,
+
+          pokemon2Server: pokemon2Var,
+          tipo1_2Server: tipo1_2,
+          tipo2_2Server: tipo2_2,
+
+          pokemon3Server: pokemon3Var,
+          tipo1_3Server: tipo1_3,
+          tipo2_3Server: tipo2_3,
+
+          pokemon4Server: pokemon4Var,
+          tipo1_4Server: tipo1_4,
+          tipo2_4Server: tipo2_4,
+
+          pokemon5Server: pokemon5Var,
+          tipo1_5Server: tipo1_5,
+          tipo2_5Server: tipo2_5,
+
+          pokemon6Server: pokemon6Var,
+          tipo1_6Server: tipo1_6,
+          tipo2_6Server: tipo2_6
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+  }
+
+  function mostrarSenha() {
+    var senha = document.getElementById("ipt_senha");
+    var senhaconfirmacao = document.getElementById("ipt_senhaconfirmacao")
+
+    if (senha.type == "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+    }
+    if (senhaconfirmacao.type == "password") {
+      senhaconfirmacao.type = "text";
+    } else {
+      senhaconfirmacao.type = "password";
+    }
+
+  }
+</script>

@@ -196,7 +196,7 @@ body {
 
 .principal {
     height: 100vh;
-    background-image: url(imagens/lumiosecity.jpg);
+    background-image: url(../assets/imagens/lumiosecity.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
