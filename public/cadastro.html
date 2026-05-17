@@ -373,10 +373,15 @@
 
           if (resposta.ok) {
             setTimeout(() => {
+              alert('Cadastro Realizado!')
               window.location = "login.html";
             }, "2000");
 
           } else {
+            alert('Email ja utilizado')
+            parte1.style.display="block"
+            parte2.style.display="none"
+            ipt_email.value='';
             throw "Houve um erro ao tentar realizar o cadastro!";
           }
         })

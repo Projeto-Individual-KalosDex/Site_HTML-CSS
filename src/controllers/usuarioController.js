@@ -21,7 +21,7 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
                         console.log(res.json(resultadoAutenticar[0]))
                     }
-                     else if (resultadoAutenticar.length == 0) {
+                    else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
@@ -37,8 +37,8 @@ function autenticar(req, res) {
     }
 
 }
-
-function cadastrar(req, res) {
+// Adição do async para sincronizar os inserts das 3 tabelas
+async function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
@@ -48,43 +48,43 @@ function cadastrar(req, res) {
     var inicialEscolhido = req.body.inicialServer;
 
     var time = [
-    {
-        pokemon: req.body.pokemon1Server,
-        tipo1: req.body.tipo1_1Server,
-        tipo2: req.body.tipo2_1Server,
-        slot: 1
-    },
-    {
-        pokemon: req.body.pokemon2Server,
-        tipo1: req.body.tipo1_2Server,
-        tipo2: req.body.tipo2_2Server,
-        slot: 2
-    },
-    {
-        pokemon: req.body.pokemon3Server,
-        tipo1: req.body.tipo1_3Server,
-        tipo2: req.body.tipo2_3Server,
-        slot: 3
-    },
-    {
-        pokemon: req.body.pokemon4Server,
-        tipo1: req.body.tipo1_4Server,
-        tipo2: req.body.tipo2_4Server,
-        slot: 4
-    },
-    {
-        pokemon: req.body.pokemon5Server,
-        tipo1: req.body.tipo1_5Server,
-        tipo2: req.body.tipo2_5Server,
-        slot: 5
-    },
-    {
-        pokemon: req.body.pokemon6Server,
-        tipo1: req.body.tipo1_6Server,
-        tipo2: req.body.tipo2_6Server,
-        slot: 6
-    }
-];
+        {
+            pokemon: req.body.pokemon1Server,
+            tipo1: req.body.tipo1_1Server,
+            tipo2: req.body.tipo2_1Server,
+            slot: 1
+        },
+        {
+            pokemon: req.body.pokemon2Server,
+            tipo1: req.body.tipo1_2Server,
+            tipo2: req.body.tipo2_2Server,
+            slot: 2
+        },
+        {
+            pokemon: req.body.pokemon3Server,
+            tipo1: req.body.tipo1_3Server,
+            tipo2: req.body.tipo2_3Server,
+            slot: 3
+        },
+        {
+            pokemon: req.body.pokemon4Server,
+            tipo1: req.body.tipo1_4Server,
+            tipo2: req.body.tipo2_4Server,
+            slot: 4
+        },
+        {
+            pokemon: req.body.pokemon5Server,
+            tipo1: req.body.tipo1_5Server,
+            tipo2: req.body.tipo2_5Server,
+            slot: 5
+        },
+        {
+            pokemon: req.body.pokemon6Server,
+            tipo1: req.body.tipo1_6Server,
+            tipo2: req.body.tipo2_6Server,
+            slot: 6
+        }
+    ];
 
 
     // Faça as validações dos valores
@@ -96,7 +96,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, nomeTreinador, pokemonFavorito, inicialEscolhido, time)
             .then(
                 function (resultado) {
                     res.json(resultado);
