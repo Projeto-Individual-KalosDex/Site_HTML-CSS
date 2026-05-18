@@ -122,20 +122,16 @@
 </body>
 
 </html>
-<script src="../js/pokemon.js"></script>
+<script src="js/pokemon.js"></script>
 <script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
 
   var datalist = document.getElementById("pokemons");
 
-  for (let i = 0; i < pokemonsXY.length; i++) {
+  for (let i = 0; i < pokemonsKalos.length; i++) {
 
     datalist.innerHTML += `
-        <option value="${pokemonsXY[i]}">
-    `;
+    <option value="${pokemonsKalos[i]}">
+      `;
   }
 
   var datalist1 = document.getElementById("pokemonkalosfavorito");
@@ -185,10 +181,7 @@
 
   }
 
-  async function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
+  function cadastrar() {
     // Agora vá para o método fetch logo abaixo
     var nomeVar = ipt_nome.value;
     var emailVar = ipt_email.value;
@@ -224,109 +217,23 @@
       erro = true;
     }
     if (
-      !pokemonsXY.includes(pokemon1Var) ||
-      !pokemonsXY.includes(pokemon2Var) ||
-      !pokemonsXY.includes(pokemon3Var) ||
-      !pokemonsXY.includes(pokemon4Var) ||
-      !pokemonsXY.includes(pokemon5Var) ||
-      !pokemonsXY.includes(pokemon6Var)
+      !pokemonsKalos.includes(pokemon1Var) ||
+      !pokemonsKalos.includes(pokemon2Var) ||
+      !pokemonsKalos.includes(pokemon3Var) ||
+      !pokemonsKalos.includes(pokemon4Var) ||
+      !pokemonsKalos.includes(pokemon5Var) ||
+      !pokemonsKalos.includes(pokemon6Var)
     ) {
       alert("Pokémon inválido no time");
       erro = true;
     }
     if (erro == false) {
-
-      // Pokemon 1
-      var resposta1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon1Var.toLowerCase()}`);
-
-      var dados1 = await resposta1.json();
-
-      var tipo1_1 = dados1.types[0].type.name;
-      var tipo2_1 = '';
-
-      if (dados1.types.length > 1) {
-        tipo2_1 = dados1.types[1].type.name;
-      }
-
-      console.log('Pokemon 1:' + tipo1_1)
-      console.log('Pokemon 1:' + tipo2_1)
-
-      // Pokemon 2
-      var resposta2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon2Var.toLowerCase()}`);
-
-      var dados2 = await resposta2.json();
-
-      var tipo1_2 = dados2.types[0].type.name;
-      var tipo2_2 = '';
-
-      if (dados2.types.length > 1) {
-        tipo2_2 = dados2.types[1].type.name;
-      }
-
-      console.log('Pokemon 2:' + tipo1_2)
-      console.log('Pokemon 2:' + tipo2_2)
-
-      // Pokemon 3
-      var resposta3 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon3Var.toLowerCase()}`);
-
-      var dados3 = await resposta3.json();
-
-      var tipo1_3 = dados3.types[0].type.name;
-      var tipo2_3 = '';
-
-      if (dados3.types.length > 1) {
-        tipo2_3
-          = dados3.types[1].type.name;
-      }
-
-      console.log('Pokemon 3:' + tipo1_3)
-      console.log('Pokemon 3:' + tipo2_3)
-
-      // Pokemon 4
-      var resposta4 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon4Var.toLowerCase()}`);
-
-      var dados4 = await resposta4.json();
-
-      var tipo1_4 = dados4.types[0].type.name;
-      var tipo2_4 = '';
-
-      if (dados4.types.length > 1) {
-        tipo2_4 = dados4.types[1].type.name;
-      }
-
-      console.log('Pokemon 4:' + tipo1_4)
-      console.log('Pokemon 4:' + tipo2_4)
-
-      // Pokemon 5
-      var resposta5 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon5Var.toLowerCase()}`);
-
-      var dados5 = await resposta5.json();
-
-      var tipo1_5 = dados5.types[0].type.name;
-      var tipo2_5 = '';
-
-      if (dados5.types.length > 1) {
-        tipo2_5 = dados5.types[1].type.name;
-      }
-
-      console.log('Pokemon 5:' + tipo1_5)
-      console.log('Pokemon 5:' + tipo2_5)
-
-      // Pokemon 6
-      var resposta6 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon6Var.toLowerCase()}`);
-
-      var dados6 = await resposta6.json();
-
-      var tipo1_6 = dados6.types[0].type.name;
-      var tipo2_6 = '';
-
-      if (dados6.types.length > 1) {
-        tipo2_6 = dados6.types[1].type.name;
-      }
-
-      console.log('Pokemon 6:' + tipo1_6)
-      console.log('Pokemon 6:' + tipo2_6)
-
+      posicaopokemon1 = pokemonsKalos.indexOf(pokemon1Var);
+      posicaopokemon2 = pokemonsKalos.indexOf(pokemon2Var);
+      posicaopokemon3 = pokemonsKalos.indexOf(pokemon3Var);
+      posicaopokemon4 = pokemonsKalos.indexOf(pokemon4Var);
+      posicaopokemon5 = pokemonsKalos.indexOf(pokemon5Var);
+      posicaopokemon6 = pokemonsKalos.indexOf(pokemon6Var);
 
       // Enviando o valor da nova input
       fetch("/usuarios/cadastrar", {
@@ -344,29 +251,29 @@
           favoritoServer: favoritoVar,
           inicialServer: inicialVar,
           pokemon1Server: pokemon1Var,
-          tipo1_1Server: tipo1_1,
-          tipo2_1Server: tipo2_1,
+          tipo1_1Server: tipo1[posicaopokemon1],
+          tipo2_1Server: tipo2[posicaopokemon1],
 
           pokemon2Server: pokemon2Var,
-          tipo1_2Server: tipo1_2,
-          tipo2_2Server: tipo2_2,
+          tipo1_2Server: tipo1[posicaopokemon2],
+          tipo2_2Server: tipo2[posicaopokemon2],
 
           pokemon3Server: pokemon3Var,
-          tipo1_3Server: tipo1_3,
-          tipo2_3Server: tipo2_3,
+          tipo1_3Server: tipo1[posicaopokemon3],
+          tipo2_3Server: tipo2[posicaopokemon3],
 
           pokemon4Server: pokemon4Var,
-          tipo1_4Server: tipo1_4,
-          tipo2_4Server: tipo2_4,
+          tipo1_4Server: tipo1[posicaopokemon4],
+          tipo2_4Server: tipo2[posicaopokemon4],
 
           pokemon5Server: pokemon5Var,
-          tipo1_5Server: tipo1_5,
-          tipo2_5Server: tipo2_5,
+          tipo1_5Server: tipo1[posicaopokemon5],
+          tipo2_5Server: tipo2[posicaopokemon5],
 
           pokemon6Server: pokemon6Var,
-          tipo1_6Server: tipo1_6,
-          tipo2_6Server: tipo2_6
-        }),
+          tipo1_6Server: tipo1[posicaopokemon6],
+          tipo2_6Server: tipo2[posicaopokemon6],
+        })
       })
         .then(function (resposta) {
           console.log("resposta: ", resposta);

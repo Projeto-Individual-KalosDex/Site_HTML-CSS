@@ -67,6 +67,80 @@ var pokemonsKalos = [
     "Zygarde"
 ];
 
+var tipo1 = [
+    "Grass", "Grass", "Grass",
+    "Fire", "Fire", "Fire",
+    "Water", "Water", "Water",
+    "Normal", "Normal",
+    "Normal", "Fire", "Fire",
+    "Bug", "Bug", "Bug",
+    "Fire", "Fire",
+    "Fairy", "Fairy", "Fairy",
+    "Grass", "Grass",
+    "Fighting", "Fighting",
+    "Psychic", "Psychic",
+    "Steel", "Steel", "Steel",
+    "Fairy", "Fairy",
+    "Fairy", "Fairy",
+    "Dark", "Dark",
+    "Rock", "Rock",
+    "Poison", "Poison",
+    "Water", "Water",
+    "Electric", "Electric",
+    "Rock", "Rock",
+    "Rock", "Rock",
+    "Fairy",
+    "Fighting",
+    "Electric",
+    "Rock",
+    "Dragon", "Dragon", "Dragon",
+    "Steel",
+    "Ghost", "Ghost",
+    "Ghost", "Ghost",
+    "Flying", "Flying",
+    "Fairy",
+    "Dark",
+    "Dragon"
+];
+
+var tipo2 = [
+    "", "", "Fighting",
+    "", "", "Psychic",
+    "", "", "Dark",
+    "", "Ground",
+    "Flying", "Flying", "Flying",
+    "", "", "Flying",
+    "Normal", "Normal",
+    "", "", "",
+    "", "",
+    "", "Dark",
+    "", "",
+    "Ghost", "Ghost", "Ghost",
+    "", "",
+    "", "",
+    "Psychic", "Psychic",
+    "Water", "Water",
+    "Dragon", "Dragon",
+    "", "",
+    "Normal", "Normal",
+    "Dragon", "Dragon",
+    "Ice", "Ice",
+    "",
+    "Flying",
+    "Fairy",
+    "Fairy",
+    "", "", "",
+    "Fairy",
+    "Grass", "Grass",
+    "Grass", "Grass",
+    "Dragon", "Dragon",
+    "",
+    "Flying",
+    "",
+    "Flying",
+    "Ground"
+];
+/*
 var pokemonsXY = [
     "Bulbasaur", "Ivysaur", "Venusaur",
     "Charmander", "Charmeleon", "Charizard",
@@ -289,4 +363,4 @@ var pokemonsXY = [
     "Xerneas",
     "Yveltal",
     "Zygarde"
-];
+]; */

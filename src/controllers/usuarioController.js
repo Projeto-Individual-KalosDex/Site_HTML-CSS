@@ -47,44 +47,31 @@ async function cadastrar(req, res) {
     var pokemonFavorito = req.body.favoritoServer;
     var inicialEscolhido = req.body.inicialServer;
 
-    var time = [
-        {
-            pokemon: req.body.pokemon1Server,
-            tipo1: req.body.tipo1_1Server,
-            tipo2: req.body.tipo2_1Server,
-            slot: 1
-        },
-        {
-            pokemon: req.body.pokemon2Server,
-            tipo1: req.body.tipo1_2Server,
-            tipo2: req.body.tipo2_2Server,
-            slot: 2
-        },
-        {
-            pokemon: req.body.pokemon3Server,
-            tipo1: req.body.tipo1_3Server,
-            tipo2: req.body.tipo2_3Server,
-            slot: 3
-        },
-        {
-            pokemon: req.body.pokemon4Server,
-            tipo1: req.body.tipo1_4Server,
-            tipo2: req.body.tipo2_4Server,
-            slot: 4
-        },
-        {
-            pokemon: req.body.pokemon5Server,
-            tipo1: req.body.tipo1_5Server,
-            tipo2: req.body.tipo2_5Server,
-            slot: 5
-        },
-        {
-            pokemon: req.body.pokemon6Server,
-            tipo1: req.body.tipo1_6Server,
-            tipo2: req.body.tipo2_6Server,
-            slot: 6
-        }
-    ];
+
+    var pokemon1 = req.body.pokemon1Server;
+    var tipo1_1 = req.body.tipo1_1Server;
+    var tipo2_1 = req.body.tipo2_1Server;
+
+    var pokemon2 = req.body.pokemon2Server;
+    var tipo1_2 = req.body.tipo1_2Server;
+    var tipo2_2 = req.body.tipo2_2Server;
+
+    var pokemon3 = req.body.pokemon3Server;
+    var tipo1_3 = req.body.tipo1_3Server;
+    var tipo2_3 = req.body.tipo2_3Server;
+
+    var pokemon4 = req.body.pokemon4Server;
+    var tipo1_4 = req.body.tipo1_4Server;
+    var tipo2_4 = req.body.tipo2_4Server;
+
+    var pokemon5 = req.body.pokemon5Server;
+    var tipo1_5 = req.body.tipo1_5Server;
+    var tipo2_5 = req.body.tipo2_5Server;
+
+    var pokemon6 = req.body.pokemon6Server;
+    var tipo1_6 = req.body.tipo1_6Server;
+    var tipo2_6 = req.body.tipo2_6Server;
+
 
 
     // Faça as validações dos valores
@@ -96,7 +83,13 @@ async function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, nomeTreinador, pokemonFavorito, inicialEscolhido, time)
+        usuarioModel.cadastrar(nome, email, senha, nomeTreinador, pokemonFavorito, inicialEscolhido, pokemon1, tipo1_1,
+            tipo2_1, pokemon2, tipo1_2,
+            tipo2_2, pokemon3, tipo1_3,
+            tipo2_3, pokemon4, tipo1_4,
+            tipo2_4, pokemon5, tipo1_5,
+            tipo2_5, pokemon6, tipo1_6,
+            tipo2_6)
             .then(
                 function (resultado) {
                     res.json(resultado);
